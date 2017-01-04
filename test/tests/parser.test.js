@@ -1,5 +1,7 @@
 import LocalDate from '../../src';
 
+console.warn = () => {}; // eslint-disable-line no-console
+
 function shouldNotConsiderTimeOrTimezone(localDate) {
   expect(localDate.getHours()).toEqual(0);
   expect(localDate.getMinutes()).toEqual(0);
