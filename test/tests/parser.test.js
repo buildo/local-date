@@ -13,6 +13,10 @@ describe('LocalDate', () => {
     expect(new LocalDate() instanceof Date).toBe(true);
   });
 
+  it('Should be an instance of LocalDate', () => {
+    expect(new LocalDate() instanceof LocalDate).toBe(true);
+  });
+
   it('Should return a LocalDate with current date if no argument is passed and should not consider any time or timezone', () => {
     const today = new Date();
     const todayLocalDate = new LocalDate();
