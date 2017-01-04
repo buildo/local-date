@@ -1,4 +1,8 @@
-const ISO_DATE_FORMAT = /^(\d{4})-(\d{2})-(\d{2})$/;
+export const ISO_DATE_FORMAT = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+function pad2(number) {
+  return number < 10  ? `0${number}` : number;
+}
 
 export default class LocalDate extends Date {
 
@@ -13,6 +17,10 @@ export default class LocalDate extends Date {
         'Invalid date supplied. Please specify a Date object or an ISO date string (YYYY-MM-DD).'
       );
     }
+  }
+
+  toISOString = () => {
+    return [this.getFullYear(), pad2(this.getMonth() + 1), pad2(this.getDate())].join('-');
   }
 
 }

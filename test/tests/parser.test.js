@@ -7,7 +7,7 @@ function shouldNotConsiderTimeOrTimezone(localDate) {
   expect(localDate.getMilliseconds()).toEqual(0);
 }
 
-describe('LocalDate', () => {
+describe('Parser', () => {
 
   it('Should be an instance of Date', () => {
     expect(new LocalDate() instanceof Date).toBe(true);
