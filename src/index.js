@@ -1,1 +1,1 @@
-export default Date;
+export default from './LocalDate';
