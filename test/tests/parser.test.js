@@ -57,8 +57,9 @@ describe('LocalDate', () => {
     expect(newLocalDate(null)).toThrow();
     expect(newLocalDate(1483549074687)).toThrow(); // timestamp
     expect(newLocalDate(2016, 5, 21)).toThrow();
-    expect(newLocalDate('2016-05-21-T16:57:03')).toThrow();
-    expect(newLocalDate('2016-05-21-T16:57:03.438Z')).toThrow();
+    expect(newLocalDate('2017-01-04T18:04:52Z')).toThrow();
+    expect(newLocalDate('2017-01-04T18:04:52.438Z')).toThrow();
+    expect(newLocalDate('2017-01-04T18:04:52+00:00')).toThrow();
   });
 
 });
