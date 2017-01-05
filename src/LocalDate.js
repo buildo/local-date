@@ -29,22 +29,22 @@ export default class LocalDate extends Date {
     return [this.getFullYear(), pad2(this.getMonth() + 1), pad2(this.getDate())].join('-');
   }
 
-  getHours = () => {
+  getHours() {
     warn('You shouldn\'t use LocalDate.getHours as LocalDate is time agnostic.');
     return Date.prototype.getHours.call(this);
   }
 
-  getMinutes = () => {
+  getMinutes() {
     warn('You shouldn\'t use LocalDate.getMinutes as LocalDate is time agnostic.');
     return Date.prototype.getMinutes.call(this);
   }
 
-  getSeconds = () => {
+  getSeconds() {
     warn('You shouldn\'t use LocalDate.getSeconds as LocalDate is time agnostic.');
     return Date.prototype.getSeconds.call(this);
   }
 
-  getMilliseconds = () => {
+  getMilliseconds() {
     warn('You shouldn\'t use LocalDate.getMilliseconds as LocalDate is time agnostic.');
     return Date.prototype.getMilliseconds.call(this);
   }
