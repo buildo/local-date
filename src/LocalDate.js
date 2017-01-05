@@ -1,5 +1,3 @@
-export const ISO_DATE_FORMAT = /^(\d{4})-(\d{2})-(\d{2})$/;
-
 function pad2(number) {
   return number < 10  ? `0${number}` : number;
 }
@@ -12,11 +10,21 @@ function warn(message) {
 
 export default class LocalDate extends Date {
 
+  static ISO_DATE_FORMAT = /^(\d{4})-(\d{2})-(\d{2})$/
+
+  static test(isoDate) {
+    return LocalDate.ISO_DATE_FORMAT.test(isoDate);
+  }
+
   constructor(value = new Date()) {
     if (value instanceof Date) {
       super(value.getFullYear(), value.getMonth(), value.getDate());
-    } else if (typeof value === 'string' && ISO_DATE_FORMAT.test(value)) {
-      const [year, month, date] = ISO_DATE_FORMAT.exec(value).slice(1).map(s => parseInt(s, 10));
+    } else if (typeof value === 'string' && LocalDate.ISO_DATE_FORMAT.test(value)) {
+      const [
+        year,
+        month,
+        date
+      ] = LocalDate.ISO_DATE_FORMAT.exec(value).slice(1).map(s => parseInt(s, 10));
       super(year, month - 1, date, 0, 0, 0, 0);
     } else {
       throw new Error(
