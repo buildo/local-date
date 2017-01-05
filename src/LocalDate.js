@@ -25,7 +25,7 @@ export default class LocalDate extends Date {
     }
   }
 
-  toISOString = () => {
+  toISOString() {
     return [this.getFullYear(), pad2(this.getMonth() + 1), pad2(this.getDate())].join('-');
   }
 
