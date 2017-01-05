@@ -12,7 +12,7 @@ export default class LocalDate extends Date {
 
   static ISO_DATE_FORMAT = /^(\d{4})-(\d{2})-(\d{2})$/
 
-  static match(isoDate) {
+  static test(isoDate) {
     return LocalDate.ISO_DATE_FORMAT.test(isoDate);
   }
 
