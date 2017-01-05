@@ -17,7 +17,22 @@ The problem with `Date` is that it always applies the user's current timezone to
 
 This can be a serious issue when you're dealing with dates that should be completely agnostic of time like birthdates or expiration dates.
 
+```js
+// GMT -05:00 (New York)
+const date = new Date('1991-06-04');
+date.getDate(); // -> 3 (Date always applies user's timezone!)
+```
+
 `LocalDate` replaces the parser of `Date` with a simpler and stricter one which will consider only the date part (and conceptually **adapt** the timezone to it instead of the opposite).
+
+```js
+// GMT -05:00 (New York)
+const localDate = new LocalDate('1991-06-04');
+localDate.getDate(); // -> 4 (LocalDate always keeps the right year, month and day)
+
+// Under the hood
+new LocalDate('1991-06-04') == new Date(1991, 5, 4);
+```
 
 ## Install
 ```
