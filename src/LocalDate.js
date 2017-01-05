@@ -16,8 +16,11 @@ export default class LocalDate extends Date {
     return LocalDate.ISO_DATE_FORMAT.test(isoDate);
   }
 
-  constructor(value = new Date()) {
-    if (value instanceof Date) {
+  constructor(value) {
+    if (typeof value === 'undefined') {
+      const now = new Date();
+      super(now.getFullYear(), now.getMonth(), now.getDate());
+    } else if (value instanceof LocalDate) {
       super(value.getFullYear(), value.getMonth(), value.getDate());
     } else if (typeof value === 'string' && LocalDate.ISO_DATE_FORMAT.test(value)) {
       const [
