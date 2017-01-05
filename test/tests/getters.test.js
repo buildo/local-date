@@ -1,4 +1,4 @@
-import LocalDate, { ISO_DATE_FORMAT } from '../../src/LocalDate';
+import LocalDate from '../../src/LocalDate';
 
 let lastLoggedWarning = null;
 console.warn = (warning) => { // eslint-disable-line no-console
@@ -10,7 +10,7 @@ describe('Getters', () => {
   const localDate = new LocalDate();
 
   it('toISOString should return an ISO date', () => {
-    expect(localDate.toISOString()).toMatch(ISO_DATE_FORMAT);
+    expect(localDate.toISOString()).toMatch(LocalDate.ISO_DATE_FORMAT);
     expect(() => new LocalDate(localDate.toISOString())).not.toThrow();
   });
 
