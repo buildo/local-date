@@ -42,17 +42,11 @@ describe('Parser', () => {
     shouldNotConsiderTimeOrTimezone(localDate);
   });
 
-  it('Should parse JS Dates without considering any time or timezone', () => {
-    const year = 1991;
-    const month = 6;
-    const day = 4;
-    const jsDate = new Date(year, month - 1, day, 15, 30, 30);
-    const localDate = new LocalDate(jsDate);
+  it('Should clone instances of LocalDates', () => {
+    const localDate = new LocalDate('2016-05-20');
+    const clonedLocalDate = new LocalDate(localDate);
 
-    expect(localDate.getFullYear()).toEqual(year);
-    expect(localDate.getMonth()).toEqual(month - 1);
-    expect(localDate.getDate()).toEqual(day);
-    shouldNotConsiderTimeOrTimezone(localDate);
+    expect(localDate).toEqual(clonedLocalDate);
   });
 
   it('Should throw an error if argument is invalid', () => {
@@ -60,6 +54,7 @@ describe('Parser', () => {
       return new LocalDate(argument);
     };
 
+    expect(newLocalDate(new Date())).toThrow();
     expect(newLocalDate(null)).toThrow();
     expect(newLocalDate(1483549074687)).toThrow(); // timestamp
     expect(newLocalDate(2016, 5, 21)).toThrow();
