@@ -1,6 +1,9 @@
+// @flow
+
 import LocalDate from '../../src/LocalDate';
 
 let lastLoggedWarning = null;
+// $FlowIgnore
 console.warn = (warning) => { // eslint-disable-line no-console
   lastLoggedWarning = warning;
 };

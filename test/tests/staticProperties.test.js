@@ -1,3 +1,5 @@
+// @flow
+
 import LocalDate from '../../src/LocalDate';
 
 describe('Static properties', () => {

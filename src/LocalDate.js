@@ -1,8 +1,10 @@
-function pad2(number) {
+// @flow
+
+function pad2(number: number): number | string {
   return number < 10  ? `0${number}` : number;
 }
 
-function warn(message) {
+function warn(message: string) {
   if (process.env.NODE_ENV !== 'production') {
     console.warn(message); // eslint-disable-line no-console
   }
@@ -12,11 +14,11 @@ export default class LocalDate extends Date {
 
   static ISO_DATE_FORMAT = /^(\d{4})-(\d{2})-(\d{2})$/
 
-  static test(isoDate) {
+  static test(isoDate: string) {
     return LocalDate.ISO_DATE_FORMAT.test(isoDate);
   }
 
-  constructor(value) {
+  constructor(value: LocalDate | string | void) {
     if (typeof value === 'undefined') {
       const now = new Date();
       super(now.getFullYear(), now.getMonth(), now.getDate());
@@ -34,26 +36,26 @@ export default class LocalDate extends Date {
     }
   }
 
-  toISOString() {
+  toISOString(): string {
     return [this.getFullYear(), pad2(this.getMonth() + 1), pad2(this.getDate())].join('-');
   }
 
-  getHours() {
+  getHours(): number {
     warn('You shouldn\'t use LocalDate.getHours as LocalDate is time agnostic.');
     return Date.prototype.getHours.call(this);
   }
 
-  getMinutes() {
+  getMinutes(): number {
     warn('You shouldn\'t use LocalDate.getMinutes as LocalDate is time agnostic.');
     return Date.prototype.getMinutes.call(this);
   }
 
-  getSeconds() {
+  getSeconds(): number {
     warn('You shouldn\'t use LocalDate.getSeconds as LocalDate is time agnostic.');
     return Date.prototype.getSeconds.call(this);
   }
 
-  getMilliseconds() {
+  getMilliseconds(): number {
     warn('You shouldn\'t use LocalDate.getMilliseconds as LocalDate is time agnostic.');
     return Date.prototype.getMilliseconds.call(this);
   }
