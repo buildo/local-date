@@ -2,7 +2,8 @@
   "plugins": [
     ["transform-builtin-extend", { "globals": ["Date"] }],
     "transform-class-properties",
-    "transform-es2015-classes"
+    "transform-es2015-classes",
+    "transform-flow-strip-types"
   ],
   "presets":  [
     "stage-0",

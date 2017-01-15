@@ -1,1 +1,4 @@
-export default from './LocalDate';
+// @flow
+
+import LocalDate from './LocalDate';
+export default LocalDate;
