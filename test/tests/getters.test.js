@@ -17,6 +17,11 @@ describe('Getters', () => {
     expect(() => new LocalDate(localDate.toISOString())).not.toThrow();
   });
 
+  it('toJSON should return an ISO date', () => {
+    expect(localDate.toJSON()).toMatch(LocalDate.ISO_DATE_FORMAT);
+    expect(() => new LocalDate(localDate.toJSON())).not.toThrow();
+  });
+
   it('getHours should log a warning and return value from Date.getHours', () => {
     expect(localDate.getHours()).toBe(0);
     expect(lastLoggedWarning).toBe('You shouldn\'t use LocalDate.getHours as LocalDate is time agnostic.');
