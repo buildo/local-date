@@ -39,6 +39,15 @@ new LocalDate('1991-06-04') == new Date(1991, 5, 4);
 npm i --save local-date
 ```
 
+## Browser Support
+`LocalDate` requires `Reflect` and `Array.from` from ES6.
+If you need to support pre-es6 browsers (like IE), you can import the two polyfills directly from `local-date`:
+
+```js
+import 'local-date/lib/polyfills/reflect';
+import 'local-date/lib/polyfills/array-from';
+```
+
 ## Usage
 `LocalDate` extends `Date` so it reflects its API for most things.
 The only parts that change are the parser and the formatter `toISOString`.
