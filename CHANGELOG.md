@@ -2,6 +2,13 @@
 
 
 
+## [v2.0.1](https://github.com/buildo/local-date/tree/v2.0.1) (2017-02-02)
+[Full Changelog](https://github.com/buildo/local-date/compare/v2.0.0...v2.0.1)
+
+#### New features:
+
+- Throw error if ES6 `Reflect.construct` is not available [#14](https://github.com/buildo/local-date/issues/14)
+
 ## [v2.0.0](https://github.com/buildo/local-date/tree/v2.0.0) (2017-01-05)
 
 
