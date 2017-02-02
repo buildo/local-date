@@ -44,5 +44,7 @@
     "smooth-release": "^6.0.0"
   },
   "peerDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "core-js": "^2.4.1"
+  }
 }
