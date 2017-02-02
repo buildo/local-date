@@ -1,6 +1,6 @@
 {
   "name": "local-date",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Replacement of Date for dealing with dates independent of time or timezone.",
   "main": "index.js",
   "scripts": {
