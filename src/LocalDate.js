@@ -1,7 +1,7 @@
 // @flow
 
 function pad2(number: number): number | string {
-  return number < 10  ? `0${number}` : number;
+  return number < 10 ? `0${number}` : number;
 }
 
 function warn(message: string) {
