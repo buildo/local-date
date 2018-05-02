@@ -1,5 +1,5 @@
 # LocalDate
-Replacement of `Date` for dealing with dates independent of time or timezone.
+Replacement of `Date` for dealing with dates independent of timezone.
 
 ## Why
 To avoid some:
@@ -23,7 +23,7 @@ const date = new Date('1991-06-04');
 date.getDate(); // -> 3 (Date always applies user's timezone!)
 ```
 
-`LocalDate` replaces the parser of `Date` with a simpler and stricter one which will consider only the date part (and conceptually **adapt** the timezone to it instead of the opposite).
+`LocalDate` and `LocalDateTime` replace the parser of `Date` with a simpler and stricter one which will consider only the date part (or the date + time parts), and conceptually **adapt** the timezone to it instead of the opposite.
 
 ```js
 // GMT -05:00 (New York)
@@ -36,7 +36,7 @@ new LocalDate('1991-06-04') == new Date(1991, 5, 4);
 
 ## Install
 ```
-npm i --save local-date
+yarn add local-date
 ```
 
 ## Browser Support
@@ -49,17 +49,17 @@ import 'local-date/lib/polyfills/array-from';
 ```
 
 ## Usage
-`LocalDate` extends `Date` so it reflects its API for most things.
+`LocalDate` and `LocalDateTime` extend `Date` so they reflect its API for most things.
 The only parts that change are the parser and the formatter `toISOString`.
 
-To help users check wether a string is a valid ISO date or not, `LocalDate` has also a static method `test`.
+To help users check wether a string is a valid ISO date or not, `LocalDate` and `LocalDateTime` have also a static method `test`.
 
 ### Parser
-There are three possible ways to instantiate a `LocalDate`:
+There are three possible ways to instantiate a `LocalDate` (`LocalDateTime`):
 
-1. ISO date
+1. ISO date (datetime) string
 2. no argument
-3. another `LocalDate` instance
+3. another `LocalDate` (`LocalDateTime`) instance
 
 #### 1) ISO date
 This is the standard way to instantiate a `LocalDate`: by passing it an ISO date string.
@@ -73,11 +73,17 @@ localDate.getMonth(); // -> 4 (timezone independent!)
 localDate.getDate(); // -> 20 (timezone independent!)
 ```
 
-#### 2) no argument
-`new LocalDate()` will return a `LocalDate` containing the current date for the user's timezone (internally it uses `new Date()`)
+Similarly, with a `LocalDateTime`:
 
-#### 3) another `LocalDate` instance
-This method is useful if you need to clone an instance of `LocalDate`:
+```js
+const localDateTime = new LocalDateTime('2016-05-20T10:10:42');
+```
+
+#### 2) no argument
+`new LocalDate()` (`new LocalDateTime()`) will return a `LocalDate` (`LocalDateTime`) containing the current date for the user's timezone (internally it uses `new Date()`)
+
+#### 3) another `LocalDate` (`LocalDateTime`) instance
+This method is useful if you need to clone an instance of `LocalDate` (`LocalDateTime`):
 
 ```js
 const localDate = new LocalDate('2016-05-20');
@@ -100,9 +106,12 @@ date.toISOString(); // -> ""2016-05-20T00:00:00.000Z"" (it contains the time as 
 ```
 
 ### `test`
-To check if a string is a valid ISO date or not, you can use the static method `LocalDate.test`:
+To check if a string is a valid ISO date or not, you can use the static method `LocalDate.test` (`LocalDateTime.test`):
 
 ```js
 LocalDate.test('2016-05-20'); // -> true
 LocalDate.test('2016-05-20T00:00:00.000Z'); // -> false
+LocalDateTime.test('2016-05-20T00:00:00'); // -> true
+LocalDateTime.test('2016-05-20T00:00:00.000'); // -> true
+LocalDateTime.test('2016-05-20T00:00:00.000Z'); // -> false
 ```

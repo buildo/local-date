@@ -1,8 +1,6 @@
 // @flow
 
-function pad2(number: number): number | string {
-  return number < 10 ? `0${number}` : number;
-}
+import { pad2 } from './util';
 
 function warn(message: string) {
   if (process.env.NODE_ENV !== 'production') {
