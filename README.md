@@ -49,7 +49,7 @@ import 'local-date/lib/polyfills/array-from';
 ```
 
 ## Usage
-`LocalDate` and `LocalDateTime` extend `Date` so it reflects its API for most things.
+`LocalDate` and `LocalDateTime` extend `Date` so they reflect its API for most things.
 The only parts that change are the parser and the formatter `toISOString`.
 
 To help users check wether a string is a valid ISO date or not, `LocalDate` and `LocalDateTime` have also a static method `test`.
