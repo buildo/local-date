@@ -37,7 +37,9 @@ export default class LocalDateTime extends Date {
 
   toISOString(): string {
     const date = [this.getFullYear(), pad2(this.getMonth() + 1), pad2(this.getDate())].join('-');
-    const time = [pad2(this.getHours()), pad2(this.getMinutes()), pad2(this.getSeconds())].join(':');
+    const time = [
+      pad2(this.getHours()), pad2(this.getMinutes()), pad2(this.getSeconds())
+    ].join(':');
     const milliseconds = pad3(this.getMilliseconds());
     return `${date}T${time}.${milliseconds}`;
   }
