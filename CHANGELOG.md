@@ -2,6 +2,13 @@
 
 
 
+## [v2.0.2](https://github.com/buildo/local-date/tree/v2.0.2) (2018-05-03)
+[Full Changelog](https://github.com/buildo/local-date/compare/v2.0.1...v2.0.2)
+
+#### New features:
+
+- Handle LocalDateTime [#17](https://github.com/buildo/local-date/issues/17)
+
 ## [v2.0.1](https://github.com/buildo/local-date/tree/v2.0.1) (2017-02-02)
 [Full Changelog](https://github.com/buildo/local-date/compare/v2.0.0...v2.0.1)
 
