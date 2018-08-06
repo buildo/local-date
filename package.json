@@ -2,10 +2,11 @@
   "name": "local-date",
   "version": "2.0.2",
   "description": "Replacement of Date for dealing with dates independent of time or timezone.",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "rm -rf lib && mkdir lib && babel src -d lib",
+    "build": "rm -rf lib && mkdir lib && babel src -d lib && cp src/index.d.ts lib",
     "lint": "eslint src test",
     "preversion": "npm run lint && npm run test",
     "prepublish": "npm run build",
