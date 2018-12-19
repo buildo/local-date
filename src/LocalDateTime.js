@@ -31,7 +31,11 @@ export default class LocalDateTime extends Date {
       ] = LocalDateTime.ISO_DATE_TIME_FORMAT.exec(value).slice(1).map(s => parseInt(s, 10));
       super(year, month - 1, date, hours, minutes, seconds, milliseconds || 0);
     } else {
-      throw new Error('Invalid date supplied. Please specify an ISO date time string (YYYY-MM-DDTHH:mm:SS) or a LocalDateTime object.\nhttps://github.com/buildo/local-date#parser'); // eslint-disable-line max-len
+      if (process.env.NODE_ENV !== 'production') {
+        throw new Error('Invalid date supplied. Please specify an ISO date time string (YYYY-MM-DDTHH:mm:SS) or a LocalDateTime object.\nhttps://github.com/buildo/local-date#parser'); // eslint-disable-line max-len
+      } else {
+        throw new Error('Invalid date supplied');
+      }
     }
   }
 
