@@ -30,7 +30,11 @@ export default class LocalDate extends Date {
       ] = LocalDate.ISO_DATE_FORMAT.exec(value).slice(1).map(s => parseInt(s, 10));
       super(year, month - 1, date, 0, 0, 0, 0);
     } else {
-      throw new Error('Invalid date supplied. Please specify an ISO date string (YYYY-MM-DD) or a LocalDate object.\nhttps://github.com/buildo/local-date#parser'); // eslint-disable-line max-len
+      if (process.env.NODE_ENV !== 'production') {
+        throw new Error('Invalid date supplied. Please specify an ISO date string (YYYY-MM-DD) or a LocalDate object.\nhttps://github.com/buildo/local-date#parser'); // eslint-disable-line max-len
+      } else {
+        throw new Error('Invalid date supplied');
+      }
     }
   }
 
