@@ -2,6 +2,20 @@
 
 
 
+## [v2.0.5](https://github.com/buildo/local-date/tree/v2.0.5) (2018-12-19)
+[Full Changelog](https://github.com/buildo/local-date/compare/v2.0.4...v2.0.5)
+
+#### Fixes (bugs & defects):
+
+- Remove reference to github.com/buildo in warning messages [#23](https://github.com/buildo/local-date/issues/23)
+
+## [v2.0.4](https://github.com/buildo/local-date/tree/v2.0.4) (2018-08-13)
+[Full Changelog](https://github.com/buildo/local-date/compare/v2.0.3...v2.0.4)
+
+#### Fixes (bugs & defects):
+
+- npm package shouldn't contain .babelrc [#21](https://github.com/buildo/local-date/issues/21)
+
 ## [v2.0.3](https://github.com/buildo/local-date/tree/v2.0.3) (2018-08-10)
 [Full Changelog](https://github.com/buildo/local-date/compare/v2.0.2...v2.0.3)
 
