@@ -1,0 +1,18 @@
+build:
+  test-and-lint:
+    image: node:6
+    environment:
+      - NPM_CONFIG_CACHE=/drone/.npm
+      - NPM_CONFIG_LOGLEVEL=warn
+    commands:
+      - npm i -g yarn
+      - yarn
+      ## libelf1 is needed to run flow
+      - apt-get update -qq && apt-get install -qy libelf1
+      - npm run flow
+      - npm run lint
+      - npm test
+
+cache:
+  mount:
+    - /drone/.npm
