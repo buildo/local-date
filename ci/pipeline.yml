@@ -35,6 +35,18 @@ jobs:
           - task: test
             file: local-date/ci/test.yml
             attempts: 2
+        on_success:
+          put: pr
+          params:
+            path: local-date
+            status: success
+            context: concourse
+        on_failure:
+          put: pr
+          params:
+            path: local-date
+            status: failure
+            context: concourse
 
   - name: test
     plan:
