@@ -2,6 +2,13 @@
 
 
 
+## [v2.0.6](https://github.com/buildo/local-date/tree/v2.0.6) (2019-09-24)
+[Full Changelog](https://github.com/buildo/local-date/compare/v2.0.5...v2.0.6)
+
+#### New features:
+
+- add  static `test` and `ISO_REGEXP` to the TS typings [#28](https://github.com/buildo/local-date/issues/28)
+
 ## [v2.0.5](https://github.com/buildo/local-date/tree/v2.0.5) (2018-12-19)
 [Full Changelog](https://github.com/buildo/local-date/compare/v2.0.4...v2.0.5)
 
